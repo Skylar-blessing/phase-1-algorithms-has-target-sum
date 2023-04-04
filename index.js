@@ -1,22 +1,38 @@
+
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  const complements = {};
+  for (const num of array) {
+    if (complements[num]) {
+      return true;
+    }
+    const complement = target - num;
+    complements[complement] = true;
+  }
+  return false;
 }
 
+
 /* 
-  Write the Big O time complexity of your function here
+  O(n)
 */
 
 /* 
-  Add your pseudocode here
+  1. Define a function named "hasTargetSum" that accepts two parameters, "array" and "target".
+2. Define an empty object named "complements".
+3. For each element in the array:
+   a. If the complement of the element exists in the "complements" object, return true.
+   b. Otherwise, add the element to the "complements" object with a value of true.
+4. Return false.
+
 */
 
 /*
-  Add written explanation of your solution here
+  Write a function that takes an array of integers and a target integer as arguments. The function should return true if any two numbers in the array add up to the target integer, and false otherwise.
 */
 
 // You can run `node index.js` to view these console logs
 if (require.main === module) {
-  // add your own custom tests in here
+  node index.js
   console.log("Expecting: true");
   console.log("=>", hasTargetSum([3, 8, 12, 4, 11, 7], 10));
 
